@@ -1,0 +1,88 @@
+/* Font Faces */
+@font-face {
+  font-family: audi-normal;
+  src: url("fonts/audinormal.ttf");
+}
+
+@font-face {
+  font-family: audi-bold;
+  src: url("fonts/audibold.ttf");
+}
+
+/* Body parts*/
+
+header {
+  margin: 0px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h2 {
+  font-size: 4em;
+  font-family: audi-normal;
+}
+
+h3 {
+  font-size: 7em;
+  font-family: audi-bold;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Classes */
+.logo {
+  height: 10em;
+  width: auto;
+}
+
+.feed-image {
+  width: 100%;
+  height: 1600px;
+}
+
+.feed-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feed-image-half {
+  width: 100%;
+  height: 1600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.feed-image-half img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feed-textbox {
+  border: solid;
+  display: inline-block;
+  padding: 1em;
+}
+
+.filler-text {
+  max-width: 1500px;
+}
+
+.textbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ID:s */
