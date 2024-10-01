@@ -1,0 +1,24 @@
+{
+  "name": "webdevproject",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mackeato/webDevProject.git"
+  },
+  "author": "Markus Ekerheim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mackeato/webDevProject/issues"
+  },
+  "homepage": "https://github.com/mackeato/webDevProject#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "sqlite3": "^5.1.7"
+  }
+}
