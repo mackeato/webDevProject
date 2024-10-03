@@ -1,13 +1,34 @@
 const express = require("express");
 const app = express();
-
 const sqlite3 = require("sqlite3");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const { engine } = require("express-handlebars");
+
 const db = new sqlite3.Database("audi.sqlite3.db");
 
 const port = 3000;
 
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./views");
+
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  res.send("deez nuts");
+  res.render("home");
+});
+
+app.get("/stock", (req, res) => {
+  res.render("stock");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact");
 });
 
 app.get("/listvehicles", (req, res) => {
