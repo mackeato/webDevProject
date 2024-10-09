@@ -1,0 +1,30 @@
+<img src="/img/stickynote.png" alt="" id="stickyNote" />
+<div id="loginBox">
+  <h1>Sign in</h1>
+
+  <form action="/login" method="post">
+    <input
+      for="username"
+      type="username"
+      id="username"
+      name="username"
+      placeholder="Username"
+    />
+    <input
+      for="password"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Password"
+      autocomplete="new-password"
+    />
+    <input type="submit" value="→" id="submitButton" />
+  </form>
+  {{#if error}}
+    <div class="error"><h2>{{error}}</h2></div>
+  {{/if}}
+
+  {{#if message}}
+    <div class="message"><h2>{{message}}</h2></div>
+  {{/if}}
+</div>

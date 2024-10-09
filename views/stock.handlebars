@@ -1,1 +1,30 @@
-Stock under construction
+<div class="centerPageItems">
+  <h1>Available Vehicles</h1>
+
+  {{#if session.isAdmin}}
+    <div><a href="/vehicle/new">Add vehicle</a></div>
+  {{/if}}
+
+  <div class="stockGrid">{{#each vehicles}}
+      <ul>
+        <li class="vehicleLi">
+          <a href="vehicle/{{reg_plate}}">
+            <div>
+              Make:{{this.make}}
+              <br />
+              Model:{{this.model}}
+              <br />
+              Year:{{this.prod_year}}
+              <br />
+              Kilometers:{{this.kilometers}}</div>
+
+          </a>
+        </li>
+          {{#if ../session.isAdmin}}
+          <a href="/vehicle/modify/{{reg_plate}}">Modify</a>
+          <a href="/vehicle/delete/{{reg_plate}}">Delete</a>
+          {{/if}}
+      </ul>
+    {{/each}}
+  </div>
+</div>

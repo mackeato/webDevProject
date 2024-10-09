@@ -20,12 +20,11 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
 }
 
 footer {
-  margin-top: 400px;
-  margin-bottom: 200px;
+  margin-top: 300px;
+  margin-bottom: 100px;
   align-items: center;
   text-align: center;
 }
@@ -35,14 +34,24 @@ a {
   color: black;
 }
 
+h1 {
+  font-size: 22px;
+  font-family: audi-bold;
+}
+
 h2 {
-  font-size: 30px;
+  font-size: 16px;
   font-family: audi-normal;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 16px;
   font-family: audi-bold;
+}
+
+li {
+  font-family: audi-bold;
+  font-size: 14px;
 }
 
 body {
@@ -50,15 +59,37 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
+input {
+  margin: 5px;
+  padding: 5px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 2px;
+}
+
+input::placeholder {
+  font-family: audi-normal;
+}
+
+button {
+  margin-top: -10px;
+  width: 70px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  background-color: white;
+  font-family: audi-bold;
+}
+
 /* Classes */
 .logo {
-  height: 5em;
+  height: 3em;
   width: auto;
 }
 
 .feed-image {
   width: 100%;
-  height: 800px;
+  height: 500px;
 }
 
 .feed-image img {
@@ -69,7 +100,7 @@ body {
 
 .feed-image-half {
   width: 100%;
-  height: 800px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -83,7 +114,20 @@ body {
 .feed-textbox {
   border: solid;
   display: inline-block;
-  padding: 1em;
+  padding: 20px;
+  margin: none;
+}
+
+.centerPageItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stockGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
 
 .filler-text {
@@ -96,6 +140,68 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 30px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.message {
+  color: rgb(70, 70, 127);
+}
+
+.loginOrLogout {
+}
+
+.vehicleLi {
+  border: solid;
+  border-radius: 2px;
+  border-width: 2px;
+  max-width: 175px;
+  padding: 10px;
+}
+
+.vehicleInfo {
+  font-family: audi-bold;
+  font-size: 14px;
+}
+
+.makeModel {
+  font-family: audi-normal;
+  font-size: 28px;
 }
 
 /* ID:s */
+
+#loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#loginBox form {
+  display: flex;
+  flex-direction: column;
+}
+
+#submitButton {
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 70px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  background-color: white;
+  font-family: audi-bold;
+  cursor: pointer;
+}
+
+#stickyNote {
+  height: 150px;
+  width: auto;
+  position: fixed;
+  right: 70px;
+  transform: rotate(10deg);
+}

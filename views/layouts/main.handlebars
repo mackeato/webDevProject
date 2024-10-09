@@ -7,7 +7,11 @@
   </head>
   <body>
     <header>
-      <a href="/"><h2>Home</h2></a>
+      {{#if session.isLoggedIn}}
+        <a href="/logout"><h2>Log out</h2></a>
+      {{else}}
+        <a href="/login"><h2>Login</h2></a>
+      {{/if}}
       <a href="/stock"><h2>Stock</h2></a>
       <div>
         <a href="/"><img class="logo" src="/img/Audi-Logo.png" alt="" /></a>
