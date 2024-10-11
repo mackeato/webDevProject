@@ -1,1 +1,81 @@
-About under construction
+<div class="centerPageItems">
+  <div class="aboutPara">
+    <div class="paragraphItem">
+      <h1>Audi: A Brief History
+      </h1>
+      <h2>Audi is a German automobile manufacturer known for its luxury
+        vehicles, innovative engineering, and cutting-edge design. The brand was
+        founded in 1909 by August Horch, who had previously established a
+        company under his own name. Due to trademark issues, he named the new
+        company "Audi," which is Latin for "listen" (a translation of "Horch").
+        Audi's history is marked by technical innovation, from the development
+        of the first German left-hand-drive car in the 1920s to the introduction
+        of Quattro all-wheel-drive technology in the 1980s, which revolutionized
+        the automobile industry.</h2></div>
+    <img src="/img/audi-old.webp" alt="" class="paragraphItem" />
+  </div>
+
+  <div class="aboutPara">
+    <img src="/img/audi-quattro.webp" alt="" class="paragraphItem" />
+    <div class="paragraphItem">
+      <h1>Motorsport: Rallying with the Quattro</h1>
+      <h2>Audi made a significant impact on motorsport history with the
+        introduction of the Audi Quattro in 1980. The car featured a
+        revolutionary all-wheel-drive system, which gave it a significant
+        advantage in rally racing. In 1982, Audi became the first manufacturer
+        to win a World Rally Championship (WRC) title with a four-wheel-drive
+        car. The Quattro's dominance continued, securing numerous wins in the
+        WRC throughout the early 1980s and setting new standards in rally car
+        design.</h2></div>
+
+  </div>
+  <div class="aboutPara">
+    <div class="paragraphItem">
+      <h1>Endurance Racing: Success at Le Mans</h1>
+      <h2>Audi's involvement in endurance racing, particularly the 24 Hours of
+        Le Mans, has been another hallmark of its motorsport legacy. Since its
+        debut at Le Mans in 1999, Audi has secured multiple victories, often
+        with its R8, R10 TDI, R15, and R18 models. The brand was among the first
+        to embrace diesel and hybrid technologies in endurance racing, leading
+        to multiple wins in the 2000s and 2010s. Audi's innovative approach to
+        engineering, focusing on fuel efficiency and aerodynamics, allowed it to
+        dominate the competition for more than a decade. These victories at Le
+        Mans have cemented Audi's reputation for durability, efficiency, and
+        high performance on the racetrack.</h2>
+    </div>
+    <img src="/img/audi-lemans.webp" alt="" class="paragraphItem" /></div>
+
+  <div class="aboutPara">
+    <img src="/img/audi-dtm.webp" alt="" class="paragraphItem" />
+    <div class="paragraphItem">
+      <h1>DTM: German Touring Car Masters</h1>
+      <h2>Audi has also played a significant role in the German Touring Car
+        Masters (DTM), one of the most popular motorsport series in Germany.
+        Audi returned to DTM racing in 2000, after a long hiatus, and quickly
+        became a dominant force. The company secured several DTM championships,
+        showcasing models such as the Audi A4 and RS5 DTM. The high level of
+        competition in DTM racing provided Audi with a platform to demonstrate
+        its engineering prowess and test new technologies in a high-performance
+        environment. Audi's success in DTM not only highlighted its dedication
+        to motorsport but also reinforced its brand image as a manufacturer of
+        precision-engineered, high-performance vehicles.</h2></div>
+
+  </div>
+
+  <h1>Our facilities</h1>
+  <div class="facilityGrid">{{#each facility}}
+      <div>
+        <h2>Facility number
+          {{this.facility_id}}
+          is our facility located in
+          {{this.city}}. It is managed by
+          {{this.emp_id}}, making the facility consist of a whooping
+          {{this.emp_count}}
+          employee(s)! It currently holds
+          {{this.vehicle_count}}
+          available vehicles.</h2>
+      </div>
+
+    {{/each}}
+  </div>
+</div>

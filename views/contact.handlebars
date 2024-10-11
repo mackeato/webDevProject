@@ -1,1 +1,15 @@
-Contact under construction
+<div class="centerPageItems">
+  <h1>Our lovely employees</h1>
+
+  <div class="stockGrid">{{#each employee}}
+      <ul>
+        <li class="empLi">
+            <div> 
+              {{this.name}} is {{this.position}} at our facility in {{this.facility_id}}. 
+              You can contact them through email:{{this.email}} or telephone: {{this.phone_num}}. Employee-id: {{this.emp_id}}.
+          </a>
+        </li>
+      </ul>
+    {{/each}}
+  </div>
+</div>

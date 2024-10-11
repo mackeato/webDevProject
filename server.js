@@ -1,10 +1,10 @@
 // Admin definition
-const adminName = "JeromeCool1337";
-//const adminPass = "supersecretpassword";
+const adminName = "JeromeCool1337"; //      <-------- THIS IS THE USERNAME
+//const adminPass = "supersecretpassword";  <-------- THIS IS THE PASSWORD
 const adminPass =
-  "$2b$12$1Vr6ShC8vsllXkMryDmnjOJdzF3M59dod9/Caf62Mb/loDrCT/ymu";
+  "$2b$12$1Vr6ShC8vsllXkMryDmnjOJdzF3M59dod9/Caf62Mb/loDrCT/ymu"; // Hashed password
 
-// Packages
+// Packages installed through Node Package Manager
 const express = require("express");
 const app = express();
 const sqlite3 = require("sqlite3");
@@ -58,20 +58,7 @@ app.post("/login", (req, res) => {
   }
   if (username == adminName) {
     console.log("Username has admin priviliges");
-    /*  if (password == adminPass) {
-      console.log("Password is correct for admin");
 
-      const model = { error: "", message: `Welcome back, admin ${username}.` };
-
-      res.render("login.handlebars", model);
-    } else {
-      const model = {
-        error: "Invalid password, please try again.",
-        message: "",
-      };
-
-      res.status(400).render("login.handlebars", model);
-    } */
     bcrypt.compare(password, adminPass, (err, result) => {
       if (err) {
         const model = {
@@ -152,12 +139,24 @@ app.get("/vehicle/:reg_plate", (req, res) => {
   );
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
+app.get("/contact", (req, res) => {
+  db.all("SELECT * FROM Employee", (error, employees) => {
+    if (error) {
+      res.render("error", { message: "Something went wrong.." });
+    } else {
+      res.render("contact", { employee: employees });
+    }
+  });
 });
 
-app.get("/contact", (req, res) => {
-  res.render("contact");
+app.get("/about", (req, res) => {
+  db.all("SELECT * FROM Facility", (error, facilities) => {
+    if (error) {
+      res.render("error", { message: "Something went wrong.." });
+    } else {
+      res.render("about", { facility: facilities });
+    }
+  });
 });
 
 app.get("/login", (req, res) => {
@@ -191,6 +190,77 @@ app.get("/vehicle/delete/:reg_plate", (req, res) => {
         console.log(
           "Vehicle " + req.params.reg_plate + " succesfully deleted."
         );
+        res.redirect("/stock");
+      }
+    }
+  );
+});
+
+app.get("/new", (req, res) => {
+  res.render("new");
+});
+
+app.post("/new", (req, res) => {
+  const regPlate = req.body.reg_plate;
+  const make = req.body.make;
+  const model = req.body.model;
+  const prodYear = req.body.prod_year;
+  const kilometers = req.body.kilometers;
+  const empId = req.body.emp_id;
+  const facilityId = req.body.facility_id;
+  const imgUrl = req.body.img_url;
+
+  db.run(
+    "INSERT INTO Vehicle (reg_plate, make, model, prod_year, kilometers, emp_id, facility_id, img_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [regPlate, make, model, prodYear, kilometers, empId, facilityId, imgUrl],
+    (error) => {
+      if (error) {
+        console.log("Error: ", error);
+        res.redirect("/stock");
+      } else {
+        console.log("Vehicle added into table.");
+        res.redirect("/stock");
+      }
+    }
+  );
+});
+
+app.get("/new/:reg_plate", (req, res) => {
+  const regPlate = req.params.reg_plate;
+  db.get(
+    "SELECT * FROM Vehicle WHERE reg_plate=?",
+    [regPlate],
+    (error, theVehicle) => {
+      if (error) {
+        console.log("Error: ", error);
+        res.redirect("/stock");
+      } else {
+        model = { vehicle: theVehicle };
+        res.render("new", model);
+      }
+    }
+  );
+});
+
+app.post("/new/:reg_plate", (req, res) => {
+  const regPlate = req.params.reg_plate;
+
+  const make = req.body.make;
+  const model = req.body.model;
+  const prodYear = req.body.prod_year;
+  const kilometers = req.body.kilometers;
+  const empId = req.body.emp_id;
+  const facilityId = req.body.facility_id;
+  const imgUrl = req.body.img_url;
+
+  db.run(
+    "UPDATE Vehicle SET make=?, model=?, prod_year=?, kilometers=?, emp_id=?, facility_id=?, img_url=? WHERE reg_plate=?",
+    [make, model, prodYear, kilometers, empId, facilityId, imgUrl, regPlate],
+    (error) => {
+      if (error) {
+        console.log("Error:", error);
+        res.redirect("/stock");
+      } else {
         res.redirect("/stock");
       }
     }

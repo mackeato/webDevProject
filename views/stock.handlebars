@@ -2,7 +2,7 @@
   <h1>Available Vehicles</h1>
 
   {{#if session.isAdmin}}
-    <div><a href="/vehicle/new">Add vehicle</a></div>
+    <div><a href="/new"><h3>Add vehicle</h3></a></div>
   {{/if}}
 
   <div class="stockGrid">{{#each vehicles}}
@@ -21,8 +21,8 @@
           </a>
         </li>
           {{#if ../session.isAdmin}}
-          <a href="/vehicle/modify/{{reg_plate}}">Modify</a>
-          <a href="/vehicle/delete/{{reg_plate}}">Delete</a>
+          <a href="/new/{{reg_plate}}"><h3>Modify</h3></a>
+          <a href="/vehicle/delete/{{reg_plate}}"><h3>Delete</h3></a>
           {{/if}}
       </ul>
     {{/each}}

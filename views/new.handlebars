@@ -1,0 +1,58 @@
+  {{#if session.isAdmin}}
+  {{#if vehicle.reg_plate}}
+    <h1>Modify vehicle info</h1>
+  {{else}}
+    <h1>Register new vehicle</h1>
+  {{/if}}
+
+  <div>
+  {{#if vehicle.reg_plate}}
+   <form action="/new/{{vehicle.reg_plate}}" method="POST">
+  {{else}}
+    <form action="/new" method="POST">
+  {{/if}}
+
+      <label for="reg_plate">Registration plate</label>
+      <input type="text" id="reg_plate" name="reg_plate" required="required" {{#if vehicle.reg_plate}} value="{{vehicle.reg_plate}}" {{/if}}/>
+
+      <label for="make">Make</label>
+      <input type="text" id="make" name="make" required="required"  {{#if vehicle.reg_plate}} value="{{vehicle.make}}" {{/if}}/>
+
+      <label for="model">Model</label>
+      <input type="text" id="model" name="model" required="required"  {{#if vehicle.reg_plate}} value="{{vehicle.model}}" {{/if}}/>
+
+      <label for="prod_year">Production year</label>
+      <input type="text" id="prod_year" name="prod_year" required="required"  {{#if vehicle.reg_plate}} value="{{vehicle.prod_year}}" {{/if}}/>
+
+      <label for="kilometers">Kilometers</label>
+      <input
+        type="text"
+        id="kilometers"
+        name="kilometers"
+        required="required"
+         {{#if vehicle.reg_plate}} value="{{vehicle.kilometers}}" {{/if}}
+      />
+
+      <label for="emp_id">Employee ID</label>
+      <input type="text" id="emp_id" name="emp_id" required="required"  {{#if vehicle.reg_plate}} value="{{vehicle.emp_id}}" {{/if}}/>
+
+      <label for="facility_id">Facility ID</label>
+      <select name="facility_id" id="facility_id" required="required" {{#if vehicle.reg_plate}} value="{{vehicle.facility_id}}" {{/if}}>
+        <option value="1">Stockholm(1)</option>
+        <option value="2">Göteborg(2)</option>
+        <option value="3">Jönköping(3)</option>
+      </select>
+
+      <label for="img_url">Image URL</label>
+      <input type="text" name="img_url" placeholder="/img/example.png"  {{#if vehicle.reg_plate}} value="{{vehicle.img_url}}" {{/if}}/>
+
+      <input type="submit"  {{#if vehicle.reg_plate}} value="Update vehicle" {{else}} value="Add vehicle" {{/if}} />
+
+    </form>
+  </div>
+</div>  
+<div>
+{{else}}
+<div class="centerPageItems">  <h2>You are not authorized for this action</h2></div>
+
+  {{/if}}
